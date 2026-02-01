@@ -1,14 +1,27 @@
-function handleNoClick() {
-const noButton = document. querySelector(" no-button");
-const yesButton = document. querySelector(" yes-button");
-noButton. textContent = messages[messageIndex];
-messageIndex = (messageIndex + 1) % messages. length;
-const currentSize = parseFloat(window
-﻿﻿getComputedStyle(yesButton)
-﻿﻿fontSize);
-yesButton.style.fontSize = *${currentSize
-* 1.5}px*;
-}
-function handleYesClick() {
-window. Location.href = "yes_page.htmL";
-}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="styles.css">
+<title>Reel-стиль интерфейса</title>
+</head>
+<body>
+<div class="reel-container">
+    <div class="reel-slide" id="slide1">
+        <h2>Первый экран</h2>
+        <p>Текст или изображение</p>
+    </div>
+    <div class="reel-slide" id="slide2">
+        <h2>Второй экран</h2>
+        <p>Можешь сюда добавить изображения или текст</p>
+    </div>
+    <div class="reel-slide" id="slide3">
+        <h2>Третий экран</h2>
+        <p>Анимация или контент</p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
