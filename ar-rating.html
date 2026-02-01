@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Вопрос</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f2f2f2;
+  font-family: Arial, sans-serif;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  position: relative;
+}
+
+.buttons {
+  margin-top: 20px;
+  position: relative;
+  height: 60px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#no {
+  position: absolute;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="card">
+  <h2>Ты согласен?</h2>
+
+  <div class="buttons" id="buttons">
+    <button id="yes">Да</button>
+    <button id="no">Нет</button>
+  </div>
+
+  <div id="message" style="display:none; margin-top:20px;">
+    Я так и знал!
+  </div>
+
+  <footer style="margin-top:20px; font-size:12px;">
+    Сделано в VS Code
+  </footer>
+</div>
+
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const buttonsWrap = document.getElementById("buttons");
+const message = document.getElementById("message");
+
+// отступ от краёв
+const SAFE_MARGIN = 8;
+// минимальная дистанция от курсора
+const MIN_DISTANCE = 80;
+
+// случайная позиция для кнопки "Нет"
+function getRandomPosition() {
+  const wrapRect = buttonsWrap.getBoundingClientRect();
+  const btnW = noBtn.offsetWidth;
+  const btnH = noBtn.offsetHeight;
+
+  const x = Math.random() * (wrapRect.width - btnW - SAFE_MARGIN);
+  const y = Math.random() * (wrapRect.height - btnH - SAFE_MARGIN);
+
+  return { x, y };
+}
+
+// кнопка "Нет" убегает
+noBtn.addEventListener("mouseenter", () => {
+  const pos = getRandomPosition();
+  noBtn.style.left = pos.x + "px";
+  noBtn.style.top = pos.y + "px";
+});
+
+// кнопка "Да"
+yesBtn.addEventListener("click", () => {
+  message.style.display = "block";
+});
+</script>
+
+</body>
+</html>
